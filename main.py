@@ -619,9 +619,7 @@ if __name__ == "__main__":
     regularExpression = regexToRegularExpression(parsed_regex) #converteste regex la expresie regulata
     nfa = regularExpressionToNfa(regularExpression)#converteste expresie regulata la nfa
     newDFA = nfaToDFA(nfa) #converte nfa la dfa
-
-    newDFA.to_graphviz().render(quiet_view = True, cleanup = True )
-
+    
     with open(sys.argv[3], "r") as fin:
         content = fin.readlines()
 
