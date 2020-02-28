@@ -547,10 +547,10 @@ def nfaToDFA(nfa):
     start_state = statesMap[stringStartState]
 
     #adaugam toate tranzitiile care lipsesc catreun synk state(None)- cod din laborator
-  #  all_transitions = (product(states, alphabet))
-  #  not_present_trans = filter(lambda x: x not in delta, all_transitions)
-  #  for trans in not_present_trans:
-  #      delta[trans] = None
+    all_transitions = (product(states, alphabet))
+    not_present_trans = filter(lambda x: x not in delta, all_transitions)
+    for trans in not_present_trans:
+        delta[trans] = None
 
     newDFA = DFA(alphabet, states, start_state, final_states, delta)
     return newDFA
@@ -619,7 +619,7 @@ if __name__ == "__main__":
     regularExpression = regexToRegularExpression(parsed_regex) #converteste regex la expresie regulata
     nfa = regularExpressionToNfa(regularExpression)#converteste expresie regulata la nfa
     newDFA = nfaToDFA(nfa) #converte nfa la dfa
-    
+
     with open(sys.argv[3], "r") as fin:
         content = fin.readlines()
 
